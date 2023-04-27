@@ -1,0 +1,8 @@
+Prompt:
+give me 10 different key word variations of Scaling hyperautomation across the enterprise that address a different search intent
+
+Settings:
+Model: gpt-3.5-turbo
+Temperature: 0.7
+Top_p: 1
+Max tokens: 1000
