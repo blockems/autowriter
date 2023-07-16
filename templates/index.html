@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Columns -->
+<div class="container mt-5 full-height"> 
+  <div class="row h-100">
+    <div class="col-4">
+      Column 1
+    </div>
+    <div class="col-4">
+      Column 2
+    </div>
+    <div class="col-4">
+      Column 3
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+/* login.css file */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #ffffff;
+}

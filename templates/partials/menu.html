@@ -1,0 +1,35 @@
+<!-- Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link{{ ' active' if request.path == url_for('setup') }}" aria-current="page" href="{{ url_for('setup') }}">Set Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{ ' active' if request.path == url_for('index') }}" href="{{ url_for('index') }}">Things To Do</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{ ' active' if request.path == url_for('knowledge') }}" href="{{ url_for('knowledge') }}">Knowledge Base</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{{ ' active' if request.path == url_for('reports') }}" href="{{ url_for('reports') }}">Reports</a>
+                </li>
+            </ul>
+        </div>
+      <div class="ml-auto">
+        {% if current_user.is_authenticated %}
+            <!-- Display avatar for logged in user -->
+            <img src="{{ url_for('static', filename='img/avatar.svg') }}" alt="User Avatar" title="{{ current_user.username }}">
+            <a style="font-size: x-small" href="{{ url_for('auth.logout') }}">logout</a>
+        {% else %}
+            <!-- Display login button for guests -->
+            <button><a href="{{ url_for('auth.login') }}" class="btn btn-primary" id="loginButton"></a>>Login</a></button>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  

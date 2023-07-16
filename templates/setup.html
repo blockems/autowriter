@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/setup.js') }}"></script>
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Columns -->
+  <div class="container-fluid mt-5 full-height main-content"> 
+    <div class="row h-100">
+      <div class="col">
+        <div class="col">
+          <div id="qa-box" class="qa-box">
+            <p class="answer">
+              I am Jim, the doors agent.<br>
+              I help people refine their requirements, kick off thier projects, and get requests into the IT backlog.
+            </p>
+          </div>
+          <div class="input-group">
+              <input type="text" id="inputField" class="form-control" placeholder="Enter your question or answer">
+              <div class="input-group-append">
+                  <button id="addButton" class="btn btn-outline-secondary" type="button">Add</button>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        Column 2
+      </div>
+      <div class="col">
+        Column 3
+      </div>
+    </div>
+  </div>
+  {% endblock %}
