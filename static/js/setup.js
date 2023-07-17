@@ -1,12 +1,14 @@
-document.getElementById('addButton').addEventListener('click', function() {
-    addResponse();
-});
-
-document.getElementById('inputField').addEventListener('keydown', function(e) {
-    if (e.keyCode === 13) {  // Check for the Enter key
-        e.preventDefault();  // Prevent form submission
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('addButton').addEventListener('click', function() {
         addResponse();
-    }
+    });
+
+    document.getElementById('inputField').addEventListener('keydown', function(e) {
+        if (e.keyCode === 13) {  // Check for the Enter key
+            e.preventDefault();  // Prevent form submission
+            addResponse();
+        }
+    });
 });
 
 function addResponse() {
@@ -21,16 +23,17 @@ function addResponse() {
     }
 }
 
-// Function that generates a response based on user input
 function getResponse(userText) {
     // Make a POST request to your Flask API
-    return fetch('/API/jim', {
+    var apiUrl = window.location.protocol + '//' + window.location.hostname + ':5001/jim';
+    return fetch(apiUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({question: userText})
     })
-    .then(response => response.text())  // Parse the response as text
+    .then(response => response.json())  // Parse the response as json
+    .then(data => data.openai_response) // Extract the 'openai_response' field from the JSON response
     .catch(error => console.error('Error:', error));
 }
